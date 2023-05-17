@@ -29,7 +29,9 @@ def store_key(api_key: str):
     store_api_key(api_key)
 
 @main.command()
-def workflow():
+@click.option("--format", help="Format of input data, e.g., FASTQ")
+def workflow(format: str):
     """Get a narrative of a workflow."""
-    describe_workflow()
+    params = {"format": format}
+    describe_workflow(params)
     
