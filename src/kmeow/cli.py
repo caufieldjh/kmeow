@@ -4,6 +4,7 @@ import click
 import logging
 
 from kmeow import __version__
+from kmeow.guide.describe import describe_workflow
 from kmeow.utils import store_api_key
 
 @click.group()
@@ -26,3 +27,9 @@ def main(verbose: bool):
 def store_key(api_key: str):
     """Utility for storing OpenAI API key."""
     store_api_key(api_key)
+
+@main.command()
+def workflow():
+    """Get a narrative of a workflow."""
+    describe_workflow()
+    
